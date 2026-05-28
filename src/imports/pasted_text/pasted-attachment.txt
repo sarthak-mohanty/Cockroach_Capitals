@@ -1,0 +1,804 @@
+# GIGSHIELD — Figma Make Generation Prompt
+## PRISM Output | IIM Bodhgaya Case Competition 2026
+
+---
+
+## 1. PRODUCT OVERVIEW
+
+GigShield is a dual-portal fintech web application — a portable benefit wallet for India's gig economy. It serves two distinct user types: gig delivery workers (Raju Yadav, 28, Bengaluru, earning Rs 24,200/month across Swiggy, Blinkit, and Ola) on a mobile-first worker portal, and platform compliance managers (Priya Menon, 34, Swiggy HQ) on a desktop-first admin panel. The product aggregates welfare contributions from multiple gig platforms into a single worker-owned wallet, unlocking insurance, pension, and formal credit. This is a judge-facing competition prototype — every screen must communicate regulatory credibility and product completeness at a glance.
+
+---
+
+## 2. DESIGN SYSTEM
+
+### Color Tokens
+- **Primary Navy:** #1A3C5E
+- **Accent Sky Blue:** #0EA5E9
+- **Wallet Gradient:** linear-gradient(135deg, #0EA5E9 0%, #1A3C5E 100%)
+- **Background:** #F8FAFC
+- **Surface / Card:** #FFFFFF
+- **Border:** #E2E8F0
+- **Text Primary:** #0F172A
+- **Text Secondary:** #64748B
+- **Text Muted:** #94A3B8
+- **Success Green:** #22C55E
+- **Success Surface:** #F0FDF4
+- **Warning Amber:** #F59E0B
+- **Warning Surface:** #FEF3C7
+- **Error Red:** #EF4444
+- **Error Surface:** #FEF2F2
+- **Swiggy Orange:** #FF6B00
+- **Blinkit Dark:** #1C1C1C
+- **Ola Yellow:** #FFD700
+
+### Typography
+- **Display Font:** Plus Jakarta Sans — weights: Bold (700), SemiBold (600)
+- **Body Font:** Inter — weights: Medium (500), Regular (400)
+
+**Type Scale:**
+- Hero number (wallet balance): Plus Jakarta Sans Bold, 40px, #FFFFFF
+- Page title: Plus Jakarta Sans SemiBold, 24px, #0F172A
+- Card title: Plus Jakarta Sans SemiBold, 18px, #0F172A
+- Section header: Inter Medium, 14px, #64748B, uppercase, 0.5px letter-spacing
+- Body: Inter Regular, 14px, #0F172A
+- Caption / label: Inter Regular, 12px, #64748B
+- Badge text: Inter Medium, 11px
+
+### Spacing
+- **Worker Portal (airy):** 24px card gap, 20px card padding, 16px horizontal page margin
+- **Admin Panel (compact):** 16px card gap, 16px card padding, 24px horizontal page margin
+- **Base unit:** 4px grid
+
+### Component Specs
+- **Card:** border-radius 12px, background #FFFFFF, box-shadow 0px 2px 8px rgba(0,0,0,0.08), border 1px solid #E2E8F0
+- **Primary Button:** border-radius 6px, background #0EA5E9, text #FFFFFF, Inter Medium 14px, height 48px (mobile) / 40px (desktop), full-width on mobile
+- **Secondary Button:** border-radius 6px, background transparent, border 1.5px solid #0EA5E9, text #0EA5E9
+- **Danger Button:** border-radius 6px, background #EF4444, text #FFFFFF
+- **Outlined Button:** border-radius 6px, background transparent, border 1.5px solid #E2E8F0, text #0F172A
+- **Input Field:** border-radius 6px, border 1.5px solid #E2E8F0, background #FFFFFF, height 48px, focus border #0EA5E9, placeholder #94A3B8, Inter Regular 14px
+- **Badge — Active:** background #F0FDF4, text #16A34A, Inter Medium 11px, border-radius 100px, padding 4px 10px
+- **Badge — Pending:** background #FEF3C7, text #D97706, same sizing
+- **Badge — Compliant:** background #F0FDF4, text #16A34A
+- **Badge — Best Match:** background #0EA5E9, text #FFFFFF
+- **Disclaimer Banner:** background #FEF3C7, border-bottom 2px solid #F59E0B, text #92400E, Inter Medium 13px, full-width, padding 10px 16px, non-dismissible
+- **Harness Banner:** background #FEF2F2, border-bottom 2px solid #EF4444, text #991B1B, same sizing
+- **Icons:** Material Filled icon set, 24px default, 20px in lists, 16px in badges
+- **Platform Pills:** Swiggy — background #FFF7ED, text #FF6B00; Blinkit — background #F1F5F9, text #1C1C1C; Ola — background #FFFBEB, text #B45309
+
+### Prototype Transitions
+- All screen-to-screen navigation: dissolve, 150ms
+- Slide-in panel (A04): slide from right, 150ms
+- Carousel (S02): horizontal slide, 150ms
+
+---
+
+## 3. FRAME SPECIFICATIONS
+
+### Worker Portal Frames
+- **Device:** iPhone 14 Pro (390 × 844px)
+- **Safe area:** respect 44px top notch, 34px bottom home indicator
+- **Navigation:** sticky bottom tab bar, height 64px, background #FFFFFF, border-top 1px solid #E2E8F0, 4 icons: Home / Wallet / Insurance / Profile. Active icon: #0EA5E9 filled + label. Inactive: #94A3B8.
+
+### Admin Panel Frames
+- **Device:** Desktop (1440 × 900px)
+- **Sidebar:** fixed left, width 240px, background #1A3C5E, full height
+- **Content area:** 1200px remaining, background #F8FAFC
+
+---
+
+## 4. SCREEN-BY-SCREEN BUILD INSTRUCTIONS
+
+---
+
+### S01 — OTP Login (Worker Portal)
+**Frame:** 390 × 844px
+
+**Background:** full-bleed #1A3C5E
+
+**Layout (top to bottom, vertically centred):**
+1. GigShield wordmark — Plus Jakarta Sans Bold 28px, #FFFFFF, centred, 80px from top
+2. Tagline — "India's Portable Benefit Wallet" — Inter Regular 13px, #93C5FD, centred, 8px below wordmark
+3. White card — max-width 350px, centred horizontally, border-radius 12px, padding 28px 24px, shadow 0px 8px 24px rgba(0,0,0,0.2)
+
+**Card contents — Step 1 (Phone Entry):**
+- Label: "Enter your mobile number" — Inter Medium 14px, #0F172A, margin-bottom 8px
+- Input row: "+91" prefix block (background #F1F5F9, border-right 1px solid #E2E8F0, padding 0 12px, Inter Medium 14px #0F172A) + 10-digit number input, combined height 48px, border 1.5px solid #E2E8F0, border-radius 6px
+- Primary button: "Send OTP" — full-width, height 48px, background #0EA5E9, border-radius 6px, Plus Jakarta Sans SemiBold 15px #FFFFFF, margin-top 16px
+- Demo hint: "Demo OTP: 123456" — Inter Regular 11px, #94A3B8, centred, margin-top 12px
+
+**Card contents — Step 2 (OTP Entry state — separate frame):**
+- Label: "Enter OTP" — Inter Medium 14px, #0F172A
+- Subtitle: "OTP sent to +91-99999 99999" — Inter Regular 12px, #64748B, margin-bottom 12px
+- 6-box OTP input: 6 equal square inputs (44×48px each), 8px gap, border 1.5px solid #E2E8F0, border-radius 6px, Inter Medium 20px centred, active box border #0EA5E9
+- Demo hint: "Demo OTP: 123456" — Inter Regular 11px, #94A3B8, centred, margin-top 8px
+- Resend link: "Resend OTP (28s)" — Inter Regular 12px, #0EA5E9, centred, margin-top 8px
+- Primary button: "Verify & Login" — full-width, height 48px, #0EA5E9
+
+**Error state (separate frame):**
+- OTP boxes: border #EF4444
+- Inline error below boxes: "Incorrect OTP. Try again." — Inter Regular 12px, #EF4444
+
+**Prototype links:** "Send OTP" → S01 Step 2 frame. "Verify & Login" → S02. Back icon → S01 Step 1.
+
+---
+
+### S02 — Onboarding Walkthrough (3 slides)
+**Frame:** 390 × 844px per slide (3 frames total)
+
+**Background:** #F8FAFC
+
+**Layout:**
+- Top 56%: illustration area, background #EFF6FF (light blue tint), border-radius 0 0 32px 32px
+- Skip button: top-right, 16px margin, Inter Medium 13px, #64748B
+- Progress dots: 3 dots centred, 8px gap, active dot #0EA5E9 (24px wide pill), inactive #CBD5E1 (8px circle), positioned 24px above bottom buttons
+- Bottom section: 32px horizontal padding
+
+**Slide 1:**
+- Illustration: flat vector — delivery worker on a scooter, orange helmet, warm skin tone, neutral background shapes in #DBEAFE and #BAE6FD. Character is mid-ride, smiling.
+- Headline: "Your wallet, active automatically." — Plus Jakarta Sans Bold 24px, #0F172A, margin-top 24px
+- Subtext: "Swiggy set up your GigShield account. No forms, no apps, no hassle." — Inter Regular 14px, #64748B, line-height 1.6, margin-top 8px
+- Button: "Next →" — primary button, full-width, height 48px
+
+**Slide 2:**
+- Illustration: flat vector — coins flowing from phone screen into a wallet, with platform logos (Swiggy orange circle, Blinkit dark circle, Ola yellow circle) floating around
+- Headline: "Every delivery earns you more." — Plus Jakarta Sans Bold 24px, #0F172A
+- Subtext: "Rs 1.60 from every Rs 80 delivery grows your insurance and pension. See it happen in real time." — Inter Regular 14px, #64748B, line-height 1.6
+- Button: "Next →" — primary button, full-width
+
+**Slide 3:**
+- Illustration: flat vector — worker holding a document with a green checkmark shield, bank building in background
+- Headline: "Your income, finally verified." — Plus Jakarta Sans Bold 24px, #0F172A
+- Subtext: "After 18 months, unlock a personal loan — even without a salary slip." — Inter Regular 14px, #64748B, line-height 1.6
+- Button: "Go to My Wallet" — primary button, full-width, background #1A3C5E
+
+**Prototype links:** Slide 1 Next → Slide 2. Slide 2 Next → Slide 3. Slide 3 "Go to My Wallet" → S03. Skip (all slides) → S03.
+
+---
+
+### S03 — Home Dashboard
+**Frame:** 390 × 1100px (scrollable, clip to 844px in prototype)
+
+**Sticky Header (fixed, height 56px):**
+- Background #FFFFFF, border-bottom 1px solid #E2E8F0
+- Left: GigShield wordmark, Plus Jakarta Sans Bold 16px, #1A3C5E
+- Centre: "Good morning, Raju 👋" — Inter Medium 14px, #0F172A
+- Right: notification bell icon (Material Filled, 24px, #64748B) + "EN | हिं" toggle (Inter Medium 11px, #64748B, separated by divider)
+
+**Page content (16px horizontal padding, scrollable below header):**
+
+**Card 1 — Wallet Balance (margin-top 16px):**
+- Full-width card, border-radius 12px, background: linear-gradient(135deg, #0EA5E9 0%, #1A3C5E 100%), padding 24px
+- Top row: "Your GigShield Wallet" — Inter Medium 13px, rgba(255,255,255,0.75)
+- Large number: "Rs 1,840" — Plus Jakarta Sans Bold 40px, #FFFFFF, margin-top 4px
+- Bottom row: green up-arrow icon (16px, #86EFAC) + "Rs 28 added today" — Inter Regular 13px, #FFFFFF, opacity 0.85
+- Entire card tappable, subtle press state (scale 0.98)
+
+**Card 2 — Earnings Summary (margin-top 16px):**
+- White card, padding 20px
+- Title row: "This Month" — Inter Medium 13px, #64748B (section label style)
+- Amount: "Rs 24,200" — Plus Jakarta Sans Bold 28px, #0F172A, margin-top 4px
+- Platform pills row (margin-top 12px, 8px gap):
+  - Swiggy pill: "Swiggy Rs 8,400" — background #FFF7ED, text #FF6B00, Inter Medium 12px, border-radius 100px, padding 4px 10px
+  - Blinkit pill: "Blinkit Rs 6,200" — background #F1F5F9, text #1C1C1C
+  - Ola pill: "Ola Rs 9,600" — background #FFFBEB, text #B45309
+
+**Card 3 — Insurance Status (margin-top 16px):**
+- White card, padding 20px
+- Left column: "ACTIVE" badge (green pill), below it: "Accident Insurance" — Inter Regular 12px, #64748B
+- Right column: "Coverage" — Inter Regular 12px, #64748B; "Rs 2,00,000" — Plus Jakarta Sans SemiBold 18px, #0F172A
+- Bottom: amber text "Prototype — Real coverage coming in production" — Inter Regular 11px, #D97706
+- Entire card tappable → S05
+
+**Card 4 — Pension Pot (margin-top 16px):**
+- White card, padding 20px
+- Title: "Your Retirement Fund" — Inter Medium 13px, #64748B
+- Amount: "Rs 3,200" — Plus Jakarta Sans Bold 24px, #0F172A, margin-top 4px
+- Mini bar chart below (3 bars, upward trend, bar color #0EA5E9, height 32px area, bars at 40% / 65% / 100%)
+- Caption: "Accumulated so far" — Inter Regular 11px, #94A3B8
+
+**Quick Actions Row (margin-top 16px):**
+- 3 equal-width buttons in a row, 8px gap
+- Each: white card, border-radius 12px, padding 16px 8px, centred content, tappable
+- Button 1: Material Filled "file_copy" icon (32px, #EF4444) + "File Claim" (Inter Medium 12px, #0F172A, margin-top 6px)
+- Button 2: Material Filled "attach_money" icon (32px, #22C55E) + "Apply for Loan"
+- Button 3: Material Filled "history" icon (32px, #0EA5E9) + "View History"
+
+**Profile Completion Banner (margin-top 16px):**
+- Background #FFFBEB, border-radius 12px, border 1px solid #FDE68A, padding 16px
+- Top row: warning icon (20px, #F59E0B) + "Complete your profile to unlock loan pre-approval" — Inter Medium 13px, #92400E
+- Progress bar below: background #FDE68A, fill #F59E0B, border-radius 100px, height 6px, fill at 60%
+- Caption: "60% complete" — Inter Regular 11px, #D97706, margin-top 6px
+
+**Activity Feed (margin-top 16px):**
+- Section header: "Recent Activity" — Inter Medium 13px, #64748B, uppercase, letter-spacing 0.5px
+- 3 transaction rows (margin-top 12px each):
+  - Row structure: platform logo circle (32px) | centre column (bold label + grey timestamp) | right column (earned amount + green contributed amount)
+  - Row 1: Swiggy orange circle "S" | "Swiggy Delivery" bold 14px + "Today, 2:34 PM" grey 12px | "Rs 80" right-align bold + "Rs 1.60 contributed" green 12px
+  - Row 2: Blinkit dark circle "B" | "Blinkit Delivery" + "Today, 11:15 AM" | "Rs 95" + "Rs 1.90 contributed"
+  - Row 3: Ola yellow circle "O" | "Ola Ride Drop-off" + "Yesterday, 6:48 PM" | "Rs 120" + "Rs 2.40 contributed"
+- "View all transactions →" — Inter Medium 13px, #0EA5E9, margin-top 12px
+
+**Bottom Nav:** sticky, 64px height, 4 tabs. Home tab active (#0EA5E9). Others inactive (#94A3B8).
+
+**Prototype links:** Wallet card → S04. Insurance card → S05. File Claim → S05. Apply for Loan → S07. View History → S04. Profile banner → S09. Bottom nav icons → respective screens.
+
+---
+
+### S04 — Live Wallet Feed
+**Frame:** 390 × 1200px (scrollable)
+
+**Sticky Header (56px):**
+- Left: back arrow icon (24px, #0F172A)
+- Centre: "My Wallet" — Plus Jakarta Sans SemiBold 18px, #0F172A
+- Right: "Rs 1,840" — Plus Jakarta Sans Bold 18px, #0EA5E9
+
+**Summary Row (margin-top 16px, 16px horizontal padding):**
+- 3 equal-width cards in horizontal row, 8px gap, border-radius 10px, border 1.5px solid #0EA5E9, padding 12px, background #F0F9FF
+- Card 1: "Today" — Inter Regular 11px, #64748B; "Rs 28" — Plus Jakarta Sans Bold 18px, #0F172A
+- Card 2: "This Week" — "Rs 187"
+- Card 3: "This Month" — "Rs 1,840"
+
+**Platform Breakdown Donut Chart (margin-top 20px, 16px padding):**
+- Donut chart, 160px diameter, centred
+- Segments: Swiggy 42% (#FF6B00), Blinkit 31% (#1C1C1C), Ola 27% (#FFD700)
+- Centre label: "Rs 1,840" — Plus Jakarta Sans Bold 16px, #0F172A; "Total" — Inter Regular 11px, #64748B
+- Legend below chart (horizontal, centred): coloured dot (10px) + platform name + percentage, 16px gap between items
+
+**Filter Bar (margin-top 20px, 16px padding):**
+- Two dropdowns side by side, 8px gap
+- Each: border 1.5px solid #E2E8F0, border-radius 6px, height 36px, Inter Regular 13px, #0F172A, chevron-down icon right
+- Dropdown 1: "Platform: All" (options: All / Swiggy / Blinkit / Ola)
+- Dropdown 2: "Date: This Month" (options: Today / This Week / This Month / Last 3 Months)
+
+**Live Indicator (margin-top 20px, 16px padding):**
+- Row: pulsing green dot (8px, #22C55E, pulse animation) + "LIVE" — Inter Medium 11px, #22C55E, 6px gap. Right-aligned.
+
+**Transaction List (margin-top 12px):**
+- Each row: 16px horizontal padding, 16px vertical padding, border-bottom 1px solid #F1F5F9
+- Alternating background: white / #F8FAFC
+- Left: platform logo circle (36px) — Swiggy orange, Blinkit dark, Ola yellow, letter initial white Bold 14px
+- Centre: platform + "Delivery Completed" — Inter Medium 14px, #0F172A; timestamp — Inter Regular 12px, #94A3B8
+- Right: "Rs 80" — Inter Medium 14px, #0F172A, right-align; "Rs 1.60 contributed" — Inter Regular 12px, #22C55E
+
+**Show 8 rows total:**
+- Swiggy Delivery — Today 2:34 PM — Rs 80 / Rs 1.60
+- Blinkit Delivery — Today 11:15 AM — Rs 95 / Rs 1.90
+- Ola Ride — Yesterday 6:48 PM — Rs 120 / Rs 2.40
+- Swiggy Delivery — Yesterday 3:22 PM — Rs 75 / Rs 1.50
+- Blinkit Delivery — Yesterday 1:05 PM — Rs 110 / Rs 2.20
+- Swiggy Delivery — 23 May — Rs 80 / Rs 1.60
+- Ola Ride — 23 May — Rs 140 / Rs 2.80
+- Swiggy Delivery — 22 May — Rs 80 / Rs 1.60
+
+**Download Button (margin-top 24px, 16px padding):**
+- Outlined button: "↓ Download Statement" — full-width, height 44px, border 1.5px solid #E2E8F0, Inter Medium 14px, #64748B
+
+**Bottom Nav:** Wallet tab active.
+
+**Prototype links:** Back arrow → S03.
+
+---
+
+### S05 — Insurance Screen
+**Frame:** 390 × 1100px (scrollable)
+
+**Sticky Header (56px):** Back arrow + "My Insurance" title (centred)
+
+**Disclaimer Banner (full-width, non-dismissible, below header):**
+- Background #FEF3C7, border-bottom 2px solid #F59E0B, padding 10px 16px
+- Warning icon (16px, #D97706) + "PROTOTYPE — Insurance data shown is simulated. Real insurance will be underwritten by an IRDAI-licensed insurer in production. Worker pays Rs 0." — Inter Medium 12px, #92400E
+
+**Policy Status Card (margin-top 16px, 16px padding):**
+- White card, padding 20px
+- Top row: large "ACTIVE" badge (green pill, 14px font) right of it: "Policy Active" — Inter Medium 14px, #0F172A
+- Details below:
+  - "Policy No:" — Inter Regular 12px, #64748B + "GS-2024-0847291" — Inter Medium 13px, #0F172A
+  - "Type:" + "Accident & Disability"
+  - "Valid from:" + "12 Jan 2024"
+
+**Coverage Card (margin-top 16px):**
+- White card, padding 20px
+- Title: "Your Coverage" — section header style
+- Row 1: shield icon (20px, #22C55E) + "Accidental Death / Permanent Disability" — Inter Regular 14px, #0F172A + "Rs 2,00,000" — Plus Jakarta Sans SemiBold 16px, #22C55E (right-align)
+- Divider line
+- Row 2: shield icon (20px, #F59E0B) + "Partial Disability" — "Rs 1,00,000" — #F59E0B
+- Caption below: "Funded by your platform. You pay Rs 0." — Inter Regular 12px, #64748B, margin-top 8px
+
+**PMSBY Stacked Coverage Card (margin-top 16px):**
+- White card, border 2px dashed #0EA5E9, padding 20px, border-radius 12px
+- Title: "Total Protection" — Plus Jakarta Sans SemiBold 16px, #1A3C5E
+- Row 1: govt shield icon (24px, navy) + "PMSBY Cover (via e-Shram)" — Inter Regular 14px, #0F172A + "Rs 2,00,000" right-align
+- Row 2: GigShield shield icon (24px, #0EA5E9) + "GigShield Cover" + "Rs 2,00,000"
+- Divider line, thicker (2px, #E2E8F0)
+- Total row: "Combined Coverage" — Inter Medium 14px, #0F172A + "Rs 4,00,000" — Plus Jakarta Sans Bold 24px, #1A3C5E, right-align
+
+**File Claim Button (margin-top 20px, 16px padding):**
+- Full-width danger button: "🚨 File a Claim" — background #EF4444, height 52px, Plus Jakarta Sans SemiBold 16px, #FFFFFF, border-radius 6px
+
+**Hospital Network (margin-top 16px):**
+- Collapsible card (show as expanded in prototype)
+- Header row: hospital icon (20px, #0EA5E9) + "2,400 Partner Hospitals — ICICI Lombard" + chevron-up icon (right)
+- 5 hospital rows: "Apollo Hospitals, Bengaluru" / "Manipal Hospital, Whitefield" / "Fortis Hospital, Bannerghatta" / "Narayana Health, HSR Layout" / "Columbia Asia, Hebbal" — Inter Regular 13px, #0F172A, 8px vertical padding each, border-bottom 1px solid #F1F5F9
+- Caption: "Prototype — Full network available in production." — Inter Regular 11px, #94A3B8
+
+**Claim History (margin-top 16px):**
+- White card, padding 20px
+- Title: "Claim History" — section header
+- Empty state: history icon (32px, #E2E8F0) centred + "No claims filed yet." — Inter Regular 14px, #94A3B8, centred, margin-top 8px
+
+**Bottom Nav:** Insurance tab active.
+
+**Prototype links:** Back → S03. File a Claim → S06.
+
+---
+
+### S06 — Claim Form (Dummy)
+**Frame:** 390 × 900px
+
+**Sticky Header:** Back arrow + "File a Claim"
+
+**Disclaimer Banner:** same amber style as S05. "PROTOTYPE — This claim form is for demonstration only. No real claim will be processed."
+
+**Form (16px padding, margin-top 16px):**
+- Field 1: Label "Type of Incident" + dropdown (Accident selected), full-width, height 48px
+- Field 2: Label "Date of Incident" + date picker input showing "15 May 2026", calendar icon right
+- Field 3: Label "Hospital / Doctor Name" + text input "Manipal Hospital, Whitefield"
+- Field 4: Label "Brief Description" + textarea (4 rows, max 300 chars) — "Fell off scooter during delivery. Right arm fracture. Admitted to Manipal Hospital." — char counter "89/300" bottom-right, Inter Regular 11px, #94A3B8
+- Field 5: Label "Emergency Contact" (grey label + "Pre-filled from profile" caption) — read-only input "Sunita Yadav — +91-98765 43210", background #F8FAFC
+
+**Submit Button (margin-top 24px):**
+- Full-width primary: "Submit Claim" — height 52px, #0EA5E9
+
+**Success State (separate frame):**
+- Full-screen, background #F0FDF4
+- Centre-aligned content:
+  - Large green checkmark circle (80px, background #22C55E, white check icon 48px)
+  - "Claim Submitted Successfully!" — Plus Jakarta Sans Bold 24px, #0F172A, margin-top 24px
+  - "Our team will contact you at +91-99999 99999 within 24 hours." — Inter Regular 14px, #64748B, margin-top 8px, line-height 1.6
+  - "Claim ID: CLM-2024-00391" — Inter Medium 13px, #0EA5E9, margin-top 12px, background #F0F9FF, padding 8px 16px, border-radius 6px
+  - "Go to Dashboard" — primary button, width 240px, margin-top 32px
+
+**Prototype links:** Submit → Success frame. "Go to Dashboard" → S03. Back → S05.
+
+---
+
+### S07 — Loan Pre-Approval
+**Frame:** 390 × 1200px (scrollable)
+
+**Sticky Header:** Back arrow + "Loan Pre-Approval"
+
+**Disclaimer Banner:** amber. "PROTOTYPE — Loan offers shown are simulated. Real loans will be disbursed by NBFC partners in production."
+
+**Income Summary Card (margin-top 16px, 16px padding):**
+- Background: linear-gradient(135deg, #0EA5E9 0%, #1A3C5E 100%), border-radius 12px, padding 24px
+- Top label: "Your Verified Income" — Inter Medium 12px, rgba(255,255,255,0.75)
+- Amount: "Rs 25,000 / month" — Plus Jakarta Sans Bold 32px, #FFFFFF, margin-top 4px
+- Below: "Verified across: Swiggy, Blinkit, Ola" — Inter Regular 13px, rgba(255,255,255,0.85)
+- Below: "History: 18 months" — same style
+- Green tick badge: background rgba(255,255,255,0.2), border-radius 100px, padding 4px 12px — checkmark icon (16px white) + "GigShield Verified" — Inter Medium 12px, #FFFFFF, margin-top 12px, inline-flex
+
+**Pre-Approval Banner (margin-top 16px, 16px padding):**
+- Card: background #F0FDF4, border 2px solid #22C55E, border-radius 12px, padding 24px
+- Sparkle/confetti icon row: 3 star icons (20px, #22C55E) spread horizontally, centred
+- "Congratulations! 🎉" — Plus Jakarta Sans Bold 22px, #0F172A, centred, margin-top 8px
+- "You are pre-approved for" — Inter Regular 14px, #64748B, centred
+- "Rs 45,000" — Plus Jakarta Sans Bold 36px, #22C55E, centred
+- "Based on your verified GigShield income history." — Inter Regular 12px, #64748B, centred, margin-top 4px
+
+**Loan Offers (margin-top 20px, 16px padding, section header "Loan Offers"):**
+
+3 stacked cards, 12px gap each:
+
+**Card 1 — KreditBee (Best Match):**
+- White card, border 2px solid #0EA5E9, padding 20px
+- Top row: "KreditBee" — Plus Jakarta Sans SemiBold 16px, #0F172A + "Best Match" badge (background #0EA5E9, text #FFFFFF, right-align)
+- Metrics row (4 columns, margin-top 12px):
+  - "Amount" / "Rs 45,000" — label grey 11px, value bold 15px
+  - "Rate" / "14% p.a."
+  - "Tenure" / "18 months"
+  - "EMI" / "Rs 2,850"
+- "Apply →" button — full-width, height 40px, primary, margin-top 16px
+
+**Card 2 — MoneyTap:**
+- White card, border 1px solid #E2E8F0, padding 20px
+- "MoneyTap" — Plus Jakarta Sans SemiBold 16px
+- Same 4-column metrics: Rs 30,000 / 16% / 12mo / Rs 2,750
+- "Apply →" — outlined button
+
+**Card 3 — Stashfin:**
+- Same as MoneyTap: Rs 20,000 / 18% / 12mo / Rs 1,840
+- "Apply →" — outlined button
+
+**Eligibility Explainer (margin-top 16px, collapsible, show expanded):**
+- Card title: "How was this calculated?" + chevron-up
+- Bullet rows:
+  - Checkmark icon (#22C55E) + "18 months of income history verified"
+  - Checkmark + "Cross-platform earnings aggregated: Swiggy, Blinkit, Ola"
+  - Checkmark + "No single employer required"
+- GigShield Trust Score: label "GigShield Trust Score" — Inter Medium 13px + "742 / 900" right-align Plus Jakarta Sans Bold 16px, #0F172A
+- Progress bar: background #E2E8F0, fill #22C55E, width 82.4%, height 8px, border-radius 100px
+- Caption: "Trust score is simulated in prototype." — Inter Regular 11px, #94A3B8
+
+**Locked State (separate frame — S07 Locked):**
+- Same header and disclaimer
+- Full-area lock state below disclaimer:
+  - Lock icon (64px, #94A3B8) centred
+  - "Loan Pre-Approval Locked" — Plus Jakarta Sans Bold 20px, #0F172A, centred, margin-top 16px
+  - "You need 3 more months of GigShield activity to unlock." — Inter Regular 14px, #64748B, centred, line-height 1.6
+  - Progress bar: "Progress: 0 / 3 months" label, bar at 0%, background #E2E8F0, border-radius 100px, height 10px, margin-top 16px
+  - "Keep Earning →" — primary button, width 240px, margin-top 24px
+
+**Bottom Nav:** no active tab (Loan is accessed via quick action).
+
+**Prototype links:** KreditBee "Apply" → S08. "Keep Earning" (locked) → S03. Back → S03.
+
+---
+
+### S08 — Loan Application Form (Dummy)
+**Frame:** 390 × 800px
+
+**Sticky Header:** Back arrow + "Loan Application"
+
+**Disclaimer Banner:** amber. "PROTOTYPE — No real loan application is being submitted."
+
+**Lender Identity Row (margin-top 16px, 16px padding):**
+- "Applying with" — Inter Regular 12px, #64748B
+- "KreditBee" — Plus Jakarta Sans SemiBold 18px, #0F172A, "Best Match" badge inline
+
+**Form Fields (16px padding, 16px gap):**
+- "Full Name" — read-only input, "Raju Yadav", background #F8FAFC, lock icon right
+- "Loan Amount" — editable, pre-filled "Rs 45,000", Inter Medium 14px
+- "Purpose" — dropdown, "Education" selected (options: Medical / Education / Home Repair / Vehicle / Other)
+- "Monthly EMI" — read-only, "Rs 2,850 / month", background #F8FAFC, "Auto-calculated" caption below, Inter Regular 11px, #94A3B8
+
+**Submit Button (margin-top 24px):**
+- "Submit Application" — full-width, height 52px, background #1A3C5E
+
+**Success State (separate frame):**
+- Same green success layout as S06
+- "Application Submitted!" — Plus Jakarta Sans Bold 24px
+- "KreditBee will call you at +91-99999 99999 within 2 business days." — Inter Regular 14px, #64748B
+- "Application ID: APP-2024-00847" — styled badge, #0EA5E9
+- "Go to Dashboard" button → S03
+
+**Prototype links:** Submit → Success. Back → S07.
+
+---
+
+### S09 — Worker Profile
+**Frame:** 390 × 1400px (scrollable)
+
+**Sticky Header:** Back arrow + "My Profile"
+
+**Profile Hero (margin-top 24px, centred):**
+- Avatar circle: 72px, background #1A3C5E, "RY" — Plus Jakarta Sans Bold 24px, #FFFFFF, centred
+- "Raju Yadav" — Plus Jakarta Sans SemiBold 20px, #0F172A, margin-top 12px, centred
+- "GS-2024-0847291" — Inter Regular 13px, #0EA5E9, centred
+- "Member since: 12 Jan 2024" — Inter Regular 12px, #64748B, centred
+
+**Personal Details Card (margin-top 24px, 16px padding):**
+- White card, padding 20px
+- Title: "Personal Details" — section header
+- Row: "Name" label + "Raju Yadav" value (read-only, grey background)
+- Row: "Phone" + "+91-99999 99999" (read-only)
+- Row: "City" + "Bengaluru" dropdown (editable, chevron right)
+- "Edit" button: outlined, 80px wide, right-align
+
+**e-Shram UAN Card:**
+- White card, padding 20px
+- Row: "e-Shram UAN" label + "12-3456-7890-1234" value
+- "Verified via e-Shram API" — green badge, margin-top 8px
+- Caption: "Integration live in production. Dummy UAN in prototype." — Inter Regular 11px, #94A3B8
+
+**Bank Account Card:**
+- White card, padding 20px
+- Row: "Account" + "XXXX XXXX 1234"
+- Row: "IFSC" + "SBIN0001234"
+- Row: "Bank" + "State Bank of India"
+- Edit button
+
+**Linked Platforms (section header "My Platforms"):**
+- 3 rows: platform logo circle (40px) + platform name + join date + "Active" green dot (right)
+- Swiggy: "Joined 12 Jan 2024" | Blinkit: "Joined 3 Mar 2024" | Ola: "Joined 18 Apr 2024"
+
+**Emergency Contact Card:**
+- White card, padding 20px
+- "Emergency Contact" section header
+- "Sunita Yadav" — Inter Medium 14px + "+91-98765 43210" — Inter Regular 13px, #64748B
+- Edit button
+
+**Download Documents (section header "Documents"):**
+- 3 outlined button rows, full-width, height 48px, 8px gap, left-align icon + label:
+  - Download icon + "Insurance Certificate (PDF)"
+  - Download icon + "Income Statement (PDF)"
+  - Download icon + "GigShield ID Card (PDF)"
+
+**Bottom Nav:** Profile tab active.
+
+---
+
+### A01 — Admin Login
+**Frame:** 1440 × 900px
+
+**Background:** full-bleed #1A3C5E
+
+**Centred layout:**
+- GigShield wordmark: Plus Jakarta Sans Bold 32px, #FFFFFF, centred, 60px from top of card area
+- "Admin Panel" — Inter Regular 14px, #93C5FD, centred, 6px below
+- White card: 440px wide, border-radius 12px, padding 40px, shadow 0px 16px 48px rgba(0,0,0,0.3)
+
+**Card contents:**
+- Platform identity row: Swiggy logo placeholder (orange circle "S", 32px) + "Swiggy India" — Plus Jakarta Sans SemiBold 16px, #0F172A, margin-bottom 24px, centred
+- "Email" label + email input pre-filled "admin@swiggy-demo.com"
+- "Password" label + password input pre-filled "••••••••••••" + eye icon right (show/hide)
+- Amber hint box (margin-top 8px): background #FEF3C7, border-radius 6px, padding 8px 12px — "Demo credentials pre-filled." — Inter Regular 12px, #92400E
+- Login button: "Login to Admin Panel" — full-width, height 48px, background #1A3C5E, Plus Jakarta Sans SemiBold 15px, #FFFFFF, margin-top 20px
+
+**Prototype links:** Login → A02.
+
+---
+
+### A02 — Admin Home Dashboard
+**Frame:** 1440 × 900px
+
+**Left Sidebar (240px, full height, background #1A3C5E):**
+- GigShield wordmark: Plus Jakarta Sans Bold 20px, #FFFFFF, padding 24px 20px
+- Divider line (rgba(255,255,255,0.15))
+- Nav items (padding 12px 20px each, Inter Medium 14px):
+  - Dashboard icon + "Dashboard" — active: background rgba(255,255,255,0.15), text #FFFFFF, left border 3px solid #0EA5E9
+  - Workers icon + "Workers" — inactive: text rgba(255,255,255,0.65)
+  - Compliance icon + "Compliance"
+  - Test Harness icon + "Test Harness" (warning icon, rgba(255,255,255,0.65))
+  - Logout icon + "Logout" (pushed to bottom)
+- Bottom of sidebar: "Priya Menon" — Inter Medium 13px, #FFFFFF, "Senior Manager, Swiggy" — Inter Regular 11px, rgba(255,255,255,0.65), avatar circle 32px
+
+**Top Bar (height 56px, background #FFFFFF, border-bottom 1px solid #E2E8F0, left: 240px):**
+- Left: Swiggy orange circle "S" (28px) + "Swiggy India — GigShield Admin Panel" — Plus Jakarta Sans SemiBold 15px, #0F172A
+- Right: "Priya Menon" — Inter Medium 13px, #0F172A + "Logout" link — Inter Regular 13px, #64748B
+
+**Content Area (padding 24px, background #F8FAFC):**
+
+**PWFVS Status Banner (full-width, margin-bottom 20px):**
+- Background #F0FDF4, border-radius 8px, border 1px solid #86EFAC, padding 12px 16px
+- Checkmark icon (20px, #22C55E) + "PWFVS Compliance: ACTIVE — All contributions tracked and verified." — Inter Medium 14px, #15803D
+
+**KPI Cards Row (4 equal cards, 16px gap):**
+- Card 1: "Total Workers Registered" — Inter Medium 13px, #64748B; "12,847" — Plus Jakarta Sans Bold 32px, #0F172A; people icon (24px, #1A3C5E), top-right
+- Card 2: "Contributions This Month" — "Rs 21.6L" — Plus Jakarta Sans Bold 32px, #22C55E; trending-up icon (#22C55E)
+- Card 3: "Claims This Month" — "3" — Plus Jakarta Sans Bold 32px, #F59E0B; warning icon (#F59E0B)
+- Card 4: "PWFVS Status" — large "COMPLIANT" badge (green pill, 16px font); checkmark icon
+
+**Charts Row (2 cards, side by side, 16px gap, margin-top 20px):**
+
+Left chart card (60% width): "Contribution Trend — Last 30 Days"
+- Line chart: sky-blue line (#0EA5E9), X-axis dates (May 1–26), Y-axis Rs values, horizontal guide lines only (#F1F5F9)
+- Hover tooltip shown at May 20: "Rs 87,400" — white card tooltip, Inter Regular 12px
+- Chart area background: white, border-radius 8px (inside card)
+
+Right chart card (40% width): "New Workers — Last 8 Weeks"
+- Bar chart: navy bars (#1A3C5E), X-axis "W19" through "W26", Y-axis worker count
+- Bar values: 1,240 / 1,380 / 1,520 / 1,690 / 1,840 / 1,920 / 2,080 / 2,175 (upward trend)
+
+**Recent Transactions + Quick Actions Row (margin-top 20px):**
+
+Left (65%): "Recent Transactions" — table
+- Table header row: background #F8FAFC, border-bottom 1.5px solid #E2E8F0
+- Columns: Worker Name | Delivery Amount | Contribution (2%) | Platform | Timestamp — Inter Medium 12px, #64748B, uppercase
+- 5 data rows: Inter Regular 13px, #0F172A, 44px row height, border-bottom 1px solid #F1F5F9
+  - Raju Yadav | Rs 80 | Rs 1.60 | Swiggy | Today 2:34 PM
+  - Meena Sharma | Rs 95 | Rs 1.90 | Blinkit | Today 2:28 PM
+  - Arjun Patel | Rs 120 | Rs 2.40 | Ola | Today 2:15 PM
+  - Deepa Nair | Rs 75 | Rs 1.50 | Swiggy | Today 1:52 PM
+  - Karan Singh | Rs 110 | Rs 2.20 | Blinkit | Today 1:40 PM
+
+Right (35%): "Quick Actions" — 3 stacked cards, 8px gap
+- "Register New Worker" — white card, padding 16px, people-add icon (24px, #0EA5E9) + label Inter Medium 14px + "→" right
+- "Simulate Delivery" — same, flash icon (#22C55E)
+- "Download Compliance Report" — same, download icon (#1A3C5E)
+
+**Prototype links:** Workers nav → A03. Compliance nav → A05. Test Harness nav → A06. Register New Worker → A06. Download Compliance Report → A05.
+
+---
+
+### A03 — Worker Management Table
+**Frame:** 1440 × 900px (same sidebar + topbar)
+
+**Page title:** "Worker Management" — Plus Jakarta Sans Bold 24px, #0F172A, margin-bottom 20px
+
+**Search + Filters Row (margin-bottom 16px):**
+- Search bar: full-width 480px, height 40px, magnifier icon left, placeholder "Search by name, phone, or GigShield ID", border 1.5px solid #E2E8F0, border-radius 6px
+- 3 filter dropdowns (right side, 8px gap): City (All), Insurance Status (All), Activity (All) — each 160px wide, height 40px
+- "Download CSV" button: outlined, right-most, appears when rows selected
+
+**Table (white card, border-radius 12px, shadow):**
+- Header row: background #F8FAFC, border-bottom 2px solid #E2E8F0, height 44px
+- Columns (with sort arrows on header): ☐ checkbox | Worker Name | GigShield ID | Phone | City | Joined | Total Contributions | Insurance | Last Activity
+- 8 data rows (44px height, alternating #FFFFFF / #F8FAFC, border-bottom 1px solid #F1F5F9):
+  - ☐ | Raju Yadav | GS-2024-0847291 | +91-99999 99999 | Bengaluru | 12 Jan 2024 | Rs 1,840 | Active (green badge) | Today
+  - ☐ | Meena Sharma | GS-2024-0847292 | +91-98765 43210 | Bengaluru | 15 Jan 2024 | Rs 2,200 | Active | Today
+  - ☐ | Arjun Patel | GS-2024-0847293 | +91-97654 32109 | Pune | 20 Jan 2024 | Rs 1,650 | Active | Today
+  - ☐ | Deepa Nair | GS-2024-0847294 | +91-96543 21098 | Bengaluru | 3 Feb 2024 | Rs 980 | Pending (amber) | 3 days ago
+  - ☐ | Karan Singh | GS-2024-0847295 | +91-95432 10987 | Jaipur | 10 Feb 2024 | Rs 3,100 | Active | Yesterday
+  - ☐ | Sunita Roy | GS-2024-0847296 | +91-94321 09876 | Mumbai | 18 Feb 2024 | Rs 750 | Pending | 5 days ago
+  - ☐ | Vikram Das | GS-2024-0847297 | +91-93210 98765 | Bengaluru | 3 Mar 2024 | Rs 2,850 | Active | Today
+  - ☐ | Preethi Nair | GS-2024-0847298 | +91-92109 87654 | Pune | 15 Mar 2024 | Rs 1,420 | Active | Yesterday
+
+- Pagination bar (below table): "Showing 1–8 of 12,847" — Inter Regular 13px, #64748B + "← Prev | 1 | 2 | 3 | ... | Next →" pagination controls
+
+**Prototype links:** Any row click → A04. Back (sidebar Dashboard) → A02.
+
+---
+
+### A04 — Worker Detail View (Slide-in Panel)
+**Frame:** 1440 × 900px (same base as A03 + panel overlay)
+
+**Panel:** right 60% of screen (864px wide), full height, background #FFFFFF, box-shadow -8px 0px 32px rgba(0,0,0,0.12)
+**Left 40% (A03 behind):** dimmed overlay rgba(0,0,0,0.3)
+
+**Panel Header (padding 24px, border-bottom 1px solid #E2E8F0):**
+- Close X button: top-right, 24px icon, #64748B
+- "Raju Yadav" — Plus Jakarta Sans Bold 24px, #0F172A
+- Row below: "GS-2024-0847291" — Inter Regular 13px, #0EA5E9 | "+91-99999 99999" | "Bengaluru" | "Active" green badge
+
+**Wallet Summary (padding 24px, 3 metric tiles in a row, border-bottom):**
+- Tile 1: "Current Wallet" / "Rs 1,840" — Plus Jakarta Sans Bold 24px
+- Tile 2: "This Month" / "Rs 1,840"
+- Tile 3: "All-Time Total" / "Rs 1,840" (same in prototype for simplicity)
+
+**Platform Linkages (padding 24px, border-bottom):**
+- Section: "Platform Linkages"
+- 3 rows: platform logo circle + name + join date + "Active" green dot
+
+**Contribution History (padding 24px):**
+- Section: "Contribution History" + date range filter dropdown (right)
+- 5 rows same format as S04 transaction list, read-only
+
+**Action Buttons (padding 24px, border-top, row of 3):**
+- "Send Benefit Notification" — outlined button
+- "Escalate Claim" — outlined button
+- "View Full History" — outlined button, #0EA5E9 text
+
+**Prototype links:** Close X → A03.
+
+---
+
+### A05 — PWFVS Compliance & Reporting
+**Frame:** 1440 × 900px
+
+**Page title:** "Compliance & Reporting"
+
+**Compliance Summary Card (full-width, background linear-gradient(135deg, #F0FDF4, #DCFCE7), border 2px solid #86EFAC, border-radius 12px, padding 28px, margin-bottom 20px):**
+- Left: large "COMPLIANT" badge (green, 18px font, pill) + "Karnataka Labour Department — PWFVS" — Inter Regular 13px, #15803D
+- Right (4 metric tiles in a row):
+  - "Total Contributions" / "Rs 21,60,000"
+  - "Mandatory Rate" / "2%"
+  - "Actual Rate" / "2.00% ✓"
+  - "Workers Covered" / "12,847"
+
+**Report Generator Card (white, padding 24px, margin-bottom 20px):**
+- Title: "Generate PWFVS Report"
+- Row: "Select Month" dropdown (May 2026 selected) + "Generate PWFVS Report" button (primary, #1A3C5E, 200px wide)
+- Below button (separate state frame): "Download PDF →" button (success green, #22C55E) + "Karnataka_PWFVS_May2026.pdf" filename label
+
+**Contribution Ledger (white card, full-width):**
+- Title: "Contribution Ledger" + "Export CSV" button (outlined, right)
+- Table: Worker ID | Delivery ID | Delivery Amount | Contribution | Timestamp | Platform | City
+- 5 rows of realistic data matching worker names from A03
+- Pagination: "Showing 1–5 of 3,92,847 records"
+
+**Audit Trail (collapsible, white card, show collapsed with expand option):**
+- Title: "Audit Trail" + chevron-down
+- Collapsed preview: "Last entry: May 26 2026, 14:34:22 UTC — Status 200"
+
+**Submission History (white card, margin-top 16px):**
+- 3 rows: Apr 2026 / Mar 2026 / Feb 2026 — each with "Download PDF" link (#0EA5E9)
+
+**Prototype links:** Generate Report → same frame with Download PDF button visible. Sidebar → A02.
+
+---
+
+### A06 — Test Harness
+**Frame:** 1440 × 900px
+
+**Harness Banner (full-width, below topbar):**
+- Background #FEF2F2, border-bottom 2px solid #EF4444, padding 12px 24px
+- Warning icon (20px, #EF4444) + "MVP TEST HARNESS — Simulates real platform API calls for demonstration purposes. This screen does not exist in production." — Inter Medium 13px, #991B1B
+
+**Page title:** "Test Harness" — Plus Jakarta Sans Bold 24px, margin-top 20px
+
+**2×2 Grid of Action Cards (16px gap):**
+
+**Card 1 — Register New Worker (white card, border-radius 12px, padding 24px):**
+- Card header: person-add icon (24px, #0EA5E9) + "Register New Worker" — Plus Jakarta Sans SemiBold 16px
+- Form fields: Name (pre-filled "Demo Raju"), Phone (pre-filled "9999999999"), City dropdown ("Bengaluru"), Platform dropdown ("Swiggy")
+- "Register Worker" button — primary, full-width, height 40px
+- Success toast (separate state): "✓ Demo Raju registered. GigShield ID: GS-2024-098234 created." — green toast, bottom-right
+
+**Card 2 — Simulate Single Delivery (white card, padding 24px):**
+- Flash icon (24px, #22C55E) + "Simulate Single Delivery"
+- Worker dropdown ("Demo Raju"), Platform dropdown ("Swiggy"), Amount input ("Rs 80")
+- "Complete Delivery" button — background #22C55E, #FFFFFF text, full-width
+- Success toast: "✓ Rs 1.60 contributed to Demo Raju's wallet."
+
+**Card 3 — Simulate 30-Day History (white card, padding 24px):**
+- Calendar icon (24px, #F59E0B) + "Simulate 30-Day History"
+- Worker dropdown ("Demo Raju")
+- "Generate History" button — background #F59E0B, #FFFFFF text, full-width
+- Progress bar (shown mid-generation): "Generating transactions... 14/30 days" — Inter Regular 13px, progress bar #F59E0B, 46% fill
+
+**Card 4 — Multi-Platform Simulation (white card, padding 24px):**
+- Grid icon (24px, #1A3C5E) + "Multi-Platform Simulation"
+- Worker dropdown ("Demo Raju")
+- 3 buttons stacked (8px gap):
+  - "🟠 Fire Swiggy Delivery" — background #FFF7ED, text #FF6B00, border 1px solid #FF6B00, full-width, height 36px
+  - "⚫ Fire Blinkit Delivery" — background #F1F5F9, text #1C1C1C, border 1px solid #1C1C1C
+  - "🟡 Fire Ola Delivery" — background #FFFBEB, text #B45309, border 1px solid #FFD700
+
+**Reset Button (bottom-centre, margin-top 24px):**
+- "Reset Demo State" — danger outlined button (border 2px solid #EF4444, text #EF4444, background transparent, width 240px, height 44px, Inter Medium 14px)
+
+**Confirmation Modal (separate overlay frame):**
+- Overlay: rgba(0,0,0,0.5) full-screen
+- Modal card: 480px wide, centred, white, border-radius 12px, padding 32px
+- Warning icon (48px, #EF4444) centred
+- "Reset Demo State?" — Plus Jakarta Sans Bold 20px, centred, margin-top 16px
+- "This will erase all demo transactions and reset wallets to zero. This cannot be undone." — Inter Regular 14px, #64748B, centred, line-height 1.6
+- Button row (margin-top 24px): "Cancel" (primary, default focus, #1A3C5E, 180px) | "Reset" (danger, background #EF4444, 180px), 16px gap
+
+---
+
+## 5. PROTOTYPE FLOW CONNECTIONS
+
+### Worker Portal
+- S01 Step 1 → S01 Step 2 (Send OTP tap)
+- S01 Step 2 → S02 Slide 1 (Verify & Login, first-time)
+- S01 Step 2 → S03 (Verify & Login, returning — use second prototype path)
+- S02 Slide 1 → Slide 2 → Slide 3 → S03
+- S02 Skip (any slide) → S03
+- S03 Wallet card → S04
+- S03 Insurance card → S05
+- S03 File Claim quick action → S05
+- S03 Apply for Loan → S07
+- S03 View History → S04
+- S03 Profile banner → S09
+- S03 Bottom nav: Wallet → S04, Insurance → S05, Profile → S09
+- S04 Back → S03
+- S05 File a Claim → S06
+- S05 Back → S03
+- S06 Submit → S06 Success
+- S06 Success "Go to Dashboard" → S03
+- S06 Back → S05
+- S07 KreditBee Apply → S08
+- S07 Back → S03
+- S07 Locked "Keep Earning" → S03
+- S08 Submit → S08 Success
+- S08 Success "Go to Dashboard" → S03
+- S08 Back → S07
+- S09 Back → S03
+- S09 Bottom nav: Home → S03
+
+### Admin Panel
+- A01 Login → A02
+- A02 Sidebar Workers → A03
+- A02 Sidebar Compliance → A05
+- A02 Sidebar Test Harness → A06
+- A02 Register New Worker quick action → A06
+- A02 Download Compliance Report → A05
+- A03 Any row → A04
+- A04 Close X → A03
+- A05 Generate Report → A05 (PDF download state)
+- A05 Sidebar → A02
+- A06 Sidebar → A02
+- A06 Reset → Confirmation modal
+- A06 Modal Cancel → A06
+- A06 Modal Reset → A06 (reset state)
+
+---
+
+## 6. TONE & FEEL
+
+**Three words:** Trustworthy. Precise. Human.
+
+**Design reference:** Stripe's dashboard meets India Stack's regulatory gravity — data-dense where it needs to be, warm where it's talking to a gig worker who has never had a bank account.
+
+**What judges should feel in the first 10 seconds:** "This is real. This works. This matters."

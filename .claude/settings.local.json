@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__resize_window",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "Bash(npx vite *)",
+      "Bash(npm run *)",
+      "Bash(sed -i '' \"s|navigate\\('/platform-admin/login'\\)|navigate\\('/admin/login'\\)|g\" /Users/sarthakmohanty/Documents/GigShield/gigShield/src/app/components/platform-admin/PlatformAdminLayout.tsx)",
+      "Bash(sed -i '' \"s|navigate\\('/super-admin/login'\\)|navigate\\('/admin/login'\\)|g\" /Users/sarthakmohanty/Documents/GigShield/gigShield/src/app/components/super-admin/SuperAdminLayout.tsx)",
+      "Bash(mkdir -p /Users/sarthakmohanty/Documents/GigShield/gigShield/public && cp \"/Users/sarthakmohanty/Downloads/Sample Identity Card.pdf\" /Users/sarthakmohanty/Documents/GigShield/gigShield/public/gigshield-id-card.pdf && echo \"Done\")",
+      "Bash(npx tsc *)",
+      "Bash(npx --no-install tsc --noEmit)",
+      "Bash(./node_modules/.bin/tsc --noEmit)",
+      "Bash(node_modules/.bin/tsc --noEmit)",
+      "Bash(/Users/sarthakmohanty/Documents/GigShield/gigShield/node_modules/.bin/tsc --noEmit)",
+      "Bash(grep -h \"targetId:\" /Users/sarthakmohanty/Documents/GigShield/gigShield/src/app/data/tutorialContent.ts | sed \"s/.*'\\\\\\(.*\\\\\\)'.*/\\\\1/\" | sort | uniq > /tmp/tour_target_ids.txt *)"
+    ]
+  }
+}
